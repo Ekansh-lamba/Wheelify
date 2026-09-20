@@ -1,10 +1,11 @@
     package com.gn.agencies.controller;
 
+    import org.mindrot.jbcrypt.BCrypt;
+
     import com.gn.agencies.entity.Admin;
     import com.gn.agencies.entity.Customer;
     import com.gn.agencies.repository.AdminRepository;
     import com.gn.agencies.repository.CustomerRepository;
-    import jakarta.servlet.http.HttpSession;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
@@ -30,17 +31,34 @@
             String username = loginData.get("username");
             String password = loginData.get("password");
 
-            Admin foundAdmin = adminRepository.findByUsernameAndPassword(username, password);
+            Admin foundAdmin = adminRepository.findByUsername(username);
             if (foundAdmin != null) {
-                System.out.println("Admin login successful: " + foundAdmin);
-                return "admin";
+                boolean isMatch = false;
+                try {
+                    isMatch = BCrypt.checkpw(password, foundAdmin.getPassword());
+                } catch (IllegalArgumentException e) {
+                    isMatch = password.equals(foundAdmin.getPassword());
+                }
+                if (isMatch) {
+                    System.out.println("Admin login successful: " + foundAdmin);
+                    return "admin";
+                }
             }
 
             // Check if the user is a Customer
-            Customer foundCustomer = customerRepository.findByLoginIdAndPassword(username, password);
-            if (foundCustomer != null) {
-                System.out.println("Customer login successful: " + foundCustomer);
-                return "customer";
+            Optional<Customer> optionalCustomer = customerRepository.findByLoginId(username);
+            if (optionalCustomer.isPresent()) {
+                Customer foundCustomer = optionalCustomer.get();
+                boolean isMatch = false;
+                try {
+                    isMatch = BCrypt.checkpw(password, foundCustomer.getPassword());
+                } catch (IllegalArgumentException e) {
+                    isMatch = password.equals(foundCustomer.getPassword());
+                }
+                if (isMatch) {
+                    System.out.println("Customer login successful: " + foundCustomer);
+                    return "customer";
+                }
             }
 
             // If neither Admin nor Customer is found
@@ -54,23 +72,40 @@
             String password = loginData.get("password");
 
             // Check if the user is an Admin
-            Admin foundAdmin = adminRepository.findByUsernameAndPassword(username, password);
+            Admin foundAdmin = adminRepository.findByUsername(username);
             if (foundAdmin != null) {
-                Map<String, String> adminDetails = new HashMap<>();
-                adminDetails.put("role", "admin");
-                adminDetails.put("loginId", foundAdmin.getUsername());
-                adminDetails.put("name", "Admin");
-                return ResponseEntity.ok(adminDetails);
+                boolean isMatch = false;
+                try {
+                    isMatch = BCrypt.checkpw(password, foundAdmin.getPassword());
+                } catch (IllegalArgumentException e) {
+                    isMatch = password.equals(foundAdmin.getPassword());
+                }
+                if (isMatch) {
+                    Map<String, String> adminDetails = new HashMap<>();
+                    adminDetails.put("role", "admin");
+                    adminDetails.put("loginId", foundAdmin.getUsername());
+                    adminDetails.put("name", "Admin");
+                    return ResponseEntity.ok(adminDetails);
+                }
             }
 
             // Check if the user is a Customer
-            Customer foundCustomer = customerRepository.findByLoginIdAndPassword(username, password);
-            if (foundCustomer != null) {
-                Map<String, String> customerDetails = new HashMap<>();
-                customerDetails.put("role", "customer");
-                customerDetails.put("loginId", foundCustomer.getLoginId());
-                customerDetails.put("name", foundCustomer.getName());
-                return ResponseEntity.ok(customerDetails);
+            Optional<Customer> optionalCustomer = customerRepository.findByLoginId(username);
+            if (optionalCustomer.isPresent()) {
+                Customer foundCustomer = optionalCustomer.get();
+                boolean isMatch = false;
+                try {
+                    isMatch = BCrypt.checkpw(password, foundCustomer.getPassword());
+                } catch (IllegalArgumentException e) {
+                    isMatch = password.equals(foundCustomer.getPassword());
+                }
+                if (isMatch) {
+                    Map<String, String> customerDetails = new HashMap<>();
+                    customerDetails.put("role", "customer");
+                    customerDetails.put("loginId", foundCustomer.getLoginId());
+                    customerDetails.put("name", foundCustomer.getName());
+                    return ResponseEntity.ok(customerDetails);
+                }
             }
 
             // If neither Admin nor Customer is found

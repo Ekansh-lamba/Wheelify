@@ -23,7 +23,7 @@ public class Payment {
     @Column(name = "car_id")
     private Long carId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false) // Customer ID as a column
     private Customer customer;
 

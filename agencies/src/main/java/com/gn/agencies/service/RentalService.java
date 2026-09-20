@@ -48,7 +48,9 @@ public class RentalService {
                     .orElseThrow(() -> new RuntimeException("Car not found"));
 
             long elapsedTimeInHours = Duration.between(rental.getStartTime(), LocalDateTime.now()).toHours();
-            double totalAmount = (elapsedTimeInHours * car.getHourlyRate()) - payment.get(i).getAmount();
+            double paymentAmount = (i < payment.size()) ? payment.get(i).getAmount() : 0.0;
+            double totalAmount = (elapsedTimeInHours * car.getHourlyRate()) - paymentAmount;
+            i++;
 
             RentalDetailsDTO rentalDetailsDTO = new RentalDetailsDTO(
                     car.getId(),
@@ -67,6 +69,13 @@ public class RentalService {
     }
 
     public void updateRentalAfterPayment(PaymentRequestDTO paymentRequest) {
+        Optional<Rental> rentalOptional = rentalRepository.findActiveRentalByCarAndCustomer(paymentRequest.getCarId(), paymentRequest.getCustomerId());
+        if (rentalOptional.isPresent()) {
+            Rental rental = rentalOptional.get();
+            rental.setEndTime(LocalDateTime.now());
+            rental.setTotalAmount(paymentRequest.getTotalAmount());
+            rentalRepository.save(rental);
+        }
     }
     public Rental updateRental(Long carId, Long customerId, Double totalAmount, LocalDateTime endTime) {
         Optional<Rental> rentalOptional = rentalRepository.findActiveRentalByCarAndCustomer(carId, customerId);

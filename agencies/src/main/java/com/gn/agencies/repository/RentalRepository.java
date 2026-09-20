@@ -39,7 +39,7 @@ public interface RentalRepository extends JpaRepository<Rental, Long> {
     // Fetch all rentals for a customer where endTime is not null
     List<Rental> findByCustomerIdAndEndTimeIsNotNull(Long customerId);
 
-    @Query("SELECT r.car, COUNT(r.car) as booking_count FROM Rental r WHERE r.customer.id = :customerId GROUP BY r.car HAVING COUNT(r.car) > 2 ORDER BY COUNT(r.car) DESC")
+    @Query("SELECT r.car FROM Rental r WHERE r.customer.id = :customerId GROUP BY r.car HAVING COUNT(r.car) > 2 ORDER BY COUNT(r.car) DESC")
     Optional<Car> findMostBookedCarByCustomer(@Param("customerId") Long customerId);
 
 

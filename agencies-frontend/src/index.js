@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'; // Updated for React 18+
 import './index.css'; // Optional, remove if not used
 import App from './App';
+import { AuthProvider } from './AuthProvider';
 
 const rootElement = document.getElementById('root'); // Matches id in index.html
 if (!rootElement) {
@@ -10,6 +11,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
     <React.StrictMode>
-        <App />
+        <AuthProvider>
+            <App />
+        </AuthProvider>
     </React.StrictMode>
 );

@@ -63,6 +63,8 @@ public class CarController {
                     car.setCarRegistrationNumber(updatedCar.getCarRegistrationNumber());
                     car.setCarColor(updatedCar.getCarColor());
                     car.setCarType(updatedCar.getCarType());
+                    car.setHourlyRate(updatedCar.getHourlyRate());
+                    car.setCarStyle(updatedCar.getCarStyle());
                     carRepository.save(car);
                     return ResponseEntity.ok(car); // Return updated car
                 })

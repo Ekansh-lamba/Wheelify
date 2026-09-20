@@ -1,5 +1,7 @@
 package com.gn.agencies.controller;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.gn.agencies.entity.Customer;
 import com.gn.agencies.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class SignupController {
     @PostMapping
     public ResponseEntity<String> signup(@RequestBody Customer customer) {
         try {
+            if (customer.getPassword() != null && !customer.getPassword().isEmpty()) {
+                customer.setPassword(BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()));
+            }
             customerRepository.save(customer); // Save customer to the database
             return ResponseEntity.ok("Signup successful!");
         } catch (Exception e) {

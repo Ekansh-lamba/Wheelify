@@ -1,5 +1,7 @@
 package com.gn.agencies.controller;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.gn.agencies.DTO.CustomerLocationDTO;
 import com.gn.agencies.DTO.CustomerDTO;
 import com.gn.agencies.entity.Customer;
@@ -34,7 +36,7 @@ public class CustomerController {
         // Convert Customer to CustomerDTO
         CustomerDTO customerDTO = new CustomerDTO(customer.getId(), customer.getName(), customer.getEmail(),
                 customer.getAddress(), customer.getPhnumber(),
-                customer.getLoginId(), customer.getPassword()); // Include password if needed
+                customer.getLoginId(), null); // Do not include password
         return ResponseEntity.ok(customerDTO);
     }
 
@@ -49,15 +51,15 @@ public class CustomerController {
                     customer.setAddress(updatedCustomer.getAddress());
                     customer.setPhnumber(updatedCustomer.getPhnumber());
                     // Be cautious with password handling; consider hashing
-                    if (updatedCustomer.getPassword() != null) {
-                        customer.setPassword(updatedCustomer.getPassword());
+                    if (updatedCustomer.getPassword() != null && !updatedCustomer.getPassword().isEmpty()) {
+                        customer.setPassword(BCrypt.hashpw(updatedCustomer.getPassword(), BCrypt.gensalt()));
                     }
 
                     Customer savedCustomer = customerRepository.save(customer);
                     CustomerDTO savedCustomerDTO = new CustomerDTO(savedCustomer.getId(), savedCustomer.getName(),
                             savedCustomer.getEmail(), savedCustomer.getAddress(),
                             savedCustomer.getPhnumber(), savedCustomer.getLoginId(),
-                            savedCustomer.getPassword()); // Include password if needed
+                            null); // Do not include password
                     return ResponseEntity.ok(savedCustomerDTO);
                 })
                 .orElse(ResponseEntity.notFound().build()); // Return 404 if customer not found

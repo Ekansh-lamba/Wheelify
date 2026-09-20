@@ -64,14 +64,9 @@ public class RentalController {
 
     // Endpoint to fetch all current rentals
     @GetMapping("/current")
-    public ResponseEntity<List<Rental>> getCurrentRentals(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<Rental> rentalPage = rentalRepository.findAll(pageable);
-
-        // Convert to List and return
-        return ResponseEntity.ok(rentalPage.getContent());
+    public ResponseEntity<List<Rental>> getCurrentRentals() {
+        List<Rental> activeRentals = rentalRepository.findByEndTimeIsNull();
+        return ResponseEntity.ok(activeRentals);
     }
 
     // Endpoint to fetch all available cars

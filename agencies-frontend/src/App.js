@@ -43,7 +43,7 @@ function App() {
                 <Route path="/admin/remove-car" element={<RemoveCarPage />} />
                 <Route path="/advance-payment" element={<AdvancePaymentPage />} />
                 <Route path="/admin/edit-car" element={<EditCarPage />} />
-                <Route path="/admin"element={<ProtectedRoute><LoginPage /> </ProtectedRoute>}/>
+                <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>}/>
                 <Route path="/return-car" element={<ReturnCarPage />} />
                 <Route path="/thank-you" element={<ThankYouPage />} />
                 <Route path="/payment" element={<PaymentPage />} />

@@ -54,7 +54,9 @@ public class FeedbackController {
             feedbackdao.setCustomerName(feedback.getCustomer().getName());
             feedbackdao.setCustomerEmail(feedback.getCustomer().getEmail());
             feedbackdao.setFeedbackText(feedback.getFeedbackText());
-            feedbackdao.setCreatedAt(feedback.getCreatedAt().toLocalDateTime());
+            if (feedback.getCreatedAt() != null) {
+                feedbackdao.setCreatedAt(feedback.getCreatedAt().toLocalDateTime());
+            }
             return feedbackdao;
         }).collect(Collectors.toList());
     }
@@ -69,7 +71,9 @@ public class FeedbackController {
                         feedbackdao.setId((long) feedback.getId());
                         feedbackdao.setCustomerName(feedback.getCustomer().getName());
                         feedbackdao.setFeedbackText(feedback.getFeedbackText());
-                        feedbackdao.setCreatedAt(feedback.getCreatedAt().toLocalDateTime());
+                        if (feedback.getCreatedAt() != null) {
+                            feedbackdao.setCreatedAt(feedback.getCreatedAt().toLocalDateTime());
+                        }
                         return feedbackdao;
                     })
                     .collect(Collectors.toList());

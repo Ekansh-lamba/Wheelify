@@ -49,6 +49,4 @@ public class Car {
     @Column(name = "picture", columnDefinition = "LONGBLOB")
     private byte[] picture;
 
-    public void orElseThrow(Object o) {
-    }
 }

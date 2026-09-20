@@ -1,5 +1,7 @@
 package com.gn.agencies.controller;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.gn.agencies.DTO.AdminDTO;
 import com.gn.agencies.entity.Admin;
 import com.gn.agencies.repository.AdminRepository;
@@ -36,7 +38,9 @@ public class AdminController {
                     // Update fields as necessary
                     admin.setUsername(updatedAdmin.getUsername());
                     // Be cautious with password handling; consider hashing
-                    admin.setPassword(updatedAdmin.getPassword());
+                    if (updatedAdmin.getPassword() != null && !updatedAdmin.getPassword().isEmpty()) {
+                        admin.setPassword(BCrypt.hashpw(updatedAdmin.getPassword(), BCrypt.gensalt()));
+                    }
 
                     Admin savedAdmin = adminRepository.save(admin);
                     AdminDTO savedAdminDTO = new AdminDTO(savedAdmin.getId(), savedAdmin.getUsername(), savedAdmin.getPassword());

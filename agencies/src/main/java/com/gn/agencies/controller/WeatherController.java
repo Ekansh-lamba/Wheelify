@@ -1,5 +1,6 @@
 package com.gn.agencies.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,7 +13,8 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000")
 public class WeatherController {
 
-    private final String API_KEY = "YOUR_OPENWEATHERMAP_API_KEY";
+    @Value("${weather.api.key:YOUR_OPENWEATHERMAP_API_KEY}")
+    private String API_KEY;
 
     @GetMapping
     public Map<String, Object> getWeather(
