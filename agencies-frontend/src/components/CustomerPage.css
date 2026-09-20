@@ -1,0 +1,442 @@
+/* CustomerPage.css */
+:root {
+    --gold: #d4af37;
+    --gold-light: #e9c560;
+    --slate-900: #1e293b;
+    --slate-600: #475569;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+    --red-500: #ef4444;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.25s ease;
+}
+
+.customer-background {
+    min-height: 200vh;
+    background: linear-gradient(135deg, var(--slate-50) 0%, var(--slate-100) 100%);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.customer-main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Welcome Section */
+.welcome-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--slate-200);
+    position: relative;
+    top: 4rem;
+    overflow: hidden;
+}
+
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    color: var(--slate-900);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.welcome-quote {
+    color: var(--slate-600);
+    font-size: 1.25rem;
+}
+
+/* Current Rentals Section */
+.current-rentals-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--slate-200);
+    margin-top: 6rem; /* Added margin-top to account for welcome section's positioning */
+}
+
+.rental-box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    size-adjust: auto;
+}
+
+.rental-box {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--slate-200);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.rental-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.rental-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.rental-box:hover::before {
+    opacity: 1;
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.car-image:hover {
+    transform: scale(1.02);
+}
+
+/* Customer Options */
+.customer-options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.customer-option-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--slate-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.customer-option-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.customer-option-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    color: white;
+}
+
+.customer-option-box:hover::before {
+    opacity: 0.95;
+}
+
+.customer-option-box * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Feature Boxes */
+.customer-feature-box {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--slate-200);
+    transition: var(--transition);
+}
+
+.customer-feature-box:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--slate-900);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Feedback Section */
+.customer-support-chat {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--slate-200);
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--slate-200);
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    min-height: 120px;
+    margin-bottom: 1rem;
+}
+
+.feedback-form textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+    outline: none;
+}
+
+.submit-feedback-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--slate-900);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+/* Footer */
+.footer {
+    background: var(--slate-900);
+    color: white;
+    padding: 4rem 2rem 2rem;
+    margin-top: 4rem;
+    border-top: 4px solid var(--gold);
+}
+
+.footer-column {
+    display: grid;
+    gap: 1rem;
+}
+
+.footer-column h3 {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.footer-column select {
+    width: 200px;  /* Reduced fixed width */
+    max-width: 100%;  /* Ensures responsiveness */
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--slate-400);
+    background-color: var(--slate-900);
+    color: var(--slate-400);
+    margin-bottom: 1rem;
+}
+
+.footer-column select:hover {
+    border-color: var(--gold);
+}
+
+.footer-column select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+
+.footer-column a {
+    color: var(--slate-400);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+}
+
+/* Utility Classes and Animations */
+.toggle-button {
+    background: none;
+    border: none;
+    color: var(--gold);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+.toggle-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: var(--slate-900);
+    color: white;
+}
+
+.dark-mode .customer-feature-box,
+.dark-mode .rental-box,
+.dark-mode .customer-option-box,
+.dark-mode .welcome-section {
+    background: var(--slate-900);
+    border-color: var(--slate-600);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customer-main-container {
+        padding: 1rem;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .rental-box-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Chat Button and Box */
+.chat-button {
+    position: fixed;
+    bottom: 01.5rem;
+    right: 2rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--slate-900);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 8rem;
+    right: 2rem;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.chat-box-header {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--slate-900);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-widget {
+    width: 100%;
+    height: calc(100% - 48px);
+}
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgba(237, 188, 11, 0.1);
+  }
+  
+  .dark-mode-toggle:hover {
+    transform: scale(1.1);
+  }
+  .customer-page-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 1.5rem;
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  
+  .main-content.shrink {
+    margin-left: 250px; /* Adjust according to the sidebar width when open */
+  }
+  
+  .welcome-section {
+    padding: 2rem;
+    background: #f4f6f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-content {
+    margin-top: 2rem;
+  }
+  

@@ -1,0 +1,165 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.landing-page {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Parallax Background */
+.parallax-background {
+    background: url('https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png') no-repeat center center / cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    transform: translateZ(0);
+    animation: parallaxScroll 10s linear infinite;
+}
+
+@keyframes parallaxScroll {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+/* Content Section */
+.landing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    z-index: 2;
+    color: white;
+}
+
+.content-wrapper {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.landing-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.landing-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+}
+
+.landing-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #dcdcdc;
+}
+
+/* Buttons */
+.landing-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.explore-button,
+.rent-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.explore-button {
+    background: #007bff;
+    color: white;
+}
+
+.rent-button {
+    background: #28a745;
+    color: white;
+}
+
+.explore-button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.rent-button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.landing-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 1.5rem 2rem;
+    }
+
+    .landing-title {
+        font-size: 2.5rem;
+    }
+
+    .landing-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .landing-description {
+        font-size: 0.9rem;
+    }
+
+    .explore-button,
+    .rent-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}

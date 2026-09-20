@@ -1,0 +1,32 @@
+# ========================
+# Spring Boot / Maven
+# ========================
+agencies/target/
+agencies/.mvn/wrapper/maven-wrapper.jar
+!agencies/.mvn/wrapper/maven-wrapper.properties
+agencies/*.class
+agencies/*.jar
+
+# ========================
+# React / Node
+# ========================
+agencies-frontend/node_modules/
+agencies-frontend/build/
+agencies-frontend/.env
+agencies-frontend/.env.local
+agencies-frontend/.env.development.local
+agencies-frontend/.env.test.local
+agencies-frontend/.env.production.local
+agencies-frontend/npm-debug.log*
+agencies-frontend/yarn-debug.log*
+agencies-frontend/yarn-error.log*
+
+# ========================
+# IDE & OS
+# ========================
+.idea/
+*.iml
+.vscode/
+.cursor/
+*.DS_Store
+Thumbs.db

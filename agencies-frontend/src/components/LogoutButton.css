@@ -1,0 +1,457 @@
+/* LogoutButton.css */
+.outlier-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: transparent;
+  backface-visibility: hidden;
+}
+
+.outlier-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Notification Button */
+.outlier-notification-btn {
+  position: relative;
+  background: transparent;
+  backface-visibility: hidden;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #94A3B8;
+  transition: all 0.2s ease;
+}
+
+.outlier-notification-btn:hover {
+  color: #0D8ABC;
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+}
+
+.notification-pulse {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 8px;
+  height: 8px;
+  background: #0D8ABC;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Profile Menu */
+.outlier-menu {
+  position: relative;
+}
+
+.outlier-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.outlier-profile-button:hover {
+  background: #F8FAFC;
+  border-color: #0D8ABC;
+}
+
+.outlier-avatar img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.outlier-name {
+  color: #1E293B;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.chevron-icon {
+  color: #94A3B8;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.chevron-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.outlier-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 0.5rem;
+  width: 250px;
+  /* Remove border and shadow */
+  border: none;
+  box-shadow: none;
+  z-index: 999;
+}
+
+.dropdown-section {
+  padding: 1.25rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.dropdown-section:last-child {
+  border-bottom: none;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(to right, #F8FAFC, #F1F5F9);
+}
+
+.outlier-avatar-large img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info h3 {
+  margin: 0;
+  color: #1E293B;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.user-role {
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #1E293B;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-list li:hover {
+  background: #F8FAFC;
+  color: #0D8ABC;
+}
+
+.menu-list li svg {
+  color: #64748B;
+  font-size: 1rem;
+}
+
+.menu-list li:hover svg {
+  color: #0D8ABC;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #FEF2F2;
+  border: none;
+  border-radius: 0.5rem;
+  color: #EF4444;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #FEE2E2;
+}
+
+.logout-button svg {
+  font-size: 1rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .outlier-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .outlier-name {
+    display: none;
+  }
+
+  .chevron-icon {
+    display: none;
+  }
+
+  .outlier-dropdown {
+    width: 280px;
+    right: -1rem;
+  }
+}
+.outlier-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8); /* More transparent background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.outlier-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Notification Button */
+.outlier-notification-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #94A3B8;
+  transition: all 0.2s ease;
+}
+
+.notification-menu {
+  position: relative;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 110%; /* Positioned right below the notification icon */
+  right: 0;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.notification-item {
+  padding: 1rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.no-notifications {
+  text-align: center;
+  padding: 1rem;
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.outlier-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: transparent; /* Fully transparent background */
+  pointer-events: none; /* Ensures the header doesn't interfere with other content */
+}
+
+.outlier-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: auto; /* Enables interaction with icons and dropdown */
+}
+
+/* Notification Button */
+.outlier-notification-btn {
+  position: relative;
+  backface-visibility: hidden;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #64748B; /* Neutral gray */
+  transition: all 0.2s ease;
+}
+
+.outlier-notification-btn:hover {
+  color: #0D8ABC; /* Bright blue */
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem); /* Position directly below the icon */
+  right: 0;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  z-index: 999;
+  box-shadow: none;
+  border-color: black;
+}
+
+/* Profile Button */
+.outlier-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0;
+  background: transparent; /* Fully transparent background */
+  border: none;
+  cursor: pointer;
+  pointer-events: auto; /* Allows interaction */
+}
+
+.outlier-avatar img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.outlier-name {
+  color: #1E293B;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.chevron-icon {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+/* Dropdown */
+.outlier-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+}
+
+/* Ensure dropdown visibility */
+.outlier-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+}
+/* Dropdown Container */
+.outlier-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 0.5rem;
+  width: 250px;
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove shadow */
+  z-index: 999;
+}
+
+/* Dropdown Arrow (optional, remove shadow here as well) */
+.outlier-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  box-shadow: none; /* Ensure no shadow for arrow */
+}
+
+/* Notification and Profile Buttons (no border/shadow) */
+.outlier-notification-btn, .outlier-profile-button {
+  box-shadow: none; /* Remove shadow from buttons */
+  border: none; /* Remove border */
+  background: transparent; /* Clean background */
+}
+
+/* Optional Hover Effects for Clean Aesthetics */
+.outlier-dropdown:hover {
+  box-shadow: none;
+}
+.avatar-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #0d8abc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

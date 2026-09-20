@@ -1,0 +1,164 @@
+/* Modern gradient background */
+.advancepayment-background {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f9fc 0%, #e9f2f9 100%);
+    padding: 2rem;
+    position: relative;
+}
+
+/* Container with glassmorphism effect */
+.advancepayment-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    padding: 2.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    transition: transform 0.3s ease;
+}
+
+.advancepayment-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.advancepayment-title {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Quote styling */
+.advancepayment-quote {
+    font-size: 1.2rem;
+    color: #4a5568;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+/* Car details section */
+.car-details {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.car-details h3 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.car-details p {
+    color: #4a5568;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Form elements styling */
+.advancepayment-details {
+    margin-bottom: 1.5rem;
+}
+
+.advancepayment-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.advancepayment-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.advancepayment-input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    outline: none;
+}
+
+/* Payment method section */
+.advancepayment-method {
+    margin-bottom: 2rem;
+}
+
+.advancepayment-method select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Button styling */
+.advancepayment-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.advancepayment-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.advancepayment-button:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .advancepayment-background {
+        padding: 1rem;
+    }
+    
+    .advancepayment-container {
+        padding: 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .advancepayment-title {
+        font-size: 1.75rem;
+    }
+}
